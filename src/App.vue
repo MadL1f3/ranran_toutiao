@@ -4,10 +4,12 @@
     
     </div>
     <router-view/>
-    <h1>然然</h1>
+    
   </div>
 </template>
 
 <style lang="less">
-
+  .app{
+    width: 750px;
+  }
 </style>
