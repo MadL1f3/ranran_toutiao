@@ -36,6 +36,11 @@ const routes=[
             },
         ]
     },
+    {
+        path:'/search',
+        name:'search',
+        component:()=>import('../views/search/search.vue')
+    },
 ]
 
 const route = new VueRouter({

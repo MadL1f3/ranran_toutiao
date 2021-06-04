@@ -8,6 +8,7 @@
         size="small"
         round
         icon="search"
+        to="/search"
         >搜索</van-button
       >
     </van-nav-bar>
@@ -19,39 +20,79 @@
       </van-tab>
       
       <div slot="nav-right" class="horder"></div>
-      <div slot="nav-right" class="more-btn">
+      <div slot="nav-right" class="more-btn" @click="ischannelshow=true">
         <i class="ranran icon-gengduo"></i>
       </div>
     </van-tabs>
     <!-- 频道列表 -->
+
+    <!-- 频道编辑弹出层 -->
+    <van-popup
+  v-model="ischannelshow"
+  closeable
+  position="bottom"
+  :style="{ height: '100%' }"
+   close-icon-position="top-left">
+   <Ediglist @changeactive="changeactive" :mychannel="channels" :active="active"></Ediglist>
+    </van-popup>
+    <!-- 频道编辑弹出层 -->
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { getdata } from '../../api/users';
+import { getItem } from '../../utils/story';
 import Channel from './components/Channel'
+import Ediglist from './components/Ediglist'
+
 export default {
   name: "Home",
-  components: {Channel},
+  components: {Channel,Ediglist},
   directives: {},
   data() {
     return { 
         active:0,
         channels:[],
+        ischannelshow:false,
     };
   },
   created(){
-    this.loaddata()
+    
+    this.loaddata();
+    
+  },
+  computed:{
+    ...mapState(["user"]),
   },
   mounted() {},
   methods: {
     async loaddata(){
       try{
-        const data= await getdata()
-        this.channels = data.data.data.channels
+        // const data= await getdata()
+        // this.channels = data.data.data.channels
+        // 已登录和未登录
+        let  channels=[]
+        if(this.user){
+          const data= await getdata()
+          channels = data.data.data.channels
+        }else{
+          const local =getItem('JIARAN_TOUTIAO')
+          if(local){
+            channels = local
+          }else{
+           const data= await getdata()
+            channels = data.data.data.channels
+          }
+        }
+        this.channels = channels
       }catch(err){
         this.$toast('获取信息失败')
       }
+    },
+    changeactive(id,ischannelshow=true){
+      this.active = id
+      this.ischannelshow = ischannelshow
     }
   },
 };

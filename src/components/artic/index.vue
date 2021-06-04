@@ -1,6 +1,8 @@
 <template>
   <van-cell class="aritcle-item">
-    <div slot="title" class="title van-multi-ellipsis--l2" >{{ article.title }}</div>
+    <div slot="title" class="title van-multi-ellipsis--l2">
+      {{ article.title }}
+    </div>
     <div slot="label">
       <div v-if="article.cover.type === 3" class="cover-worp">
         <div
@@ -9,7 +11,7 @@
           :key="index"
         >
           <van-image
-            fit='cover'
+            fit="cover"
             :src="article.cover.images[index]"
             class="vanimg"
           >
@@ -46,6 +48,7 @@ export default {
   data() {
     return {};
   },
+  created() {},
   mounted() {},
   methods: {},
 };
@@ -66,28 +69,27 @@ export default {
     width: 232px;
     height: 146px;
   }
-  .span-lists{
-      span{
-          font-size: 22px;
-          color:#b4b4b4;
-          margin-right: 25px;
-      }
+  .span-lists {
+    span {
+      font-size: 22px;
+      color: #b4b4b4;
+      margin-right: 25px;
+    }
   }
-  .cover-worp{
-      display: flex;
-      padding: 30px 0px;
-      .cover-item{
-          flex: 1;
-          height: 146px;
-          &:not(:last-child){
-              padding-right: 4px;
-          }
-        .vanimg{
-            width: 100%;
-            height: 146px;
-        }
+  .cover-worp {
+    display: flex;
+    padding: 30px 0px;
+    .cover-item {
+      flex: 1;
+      height: 146px;
+      &:not(:last-child) {
+        padding-right: 4px;
       }
-      
+      .vanimg {
+        width: 100%;
+        height: 146px;
+      }
+    }
   }
 }
 </style>
