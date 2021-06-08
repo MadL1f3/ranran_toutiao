@@ -101,3 +101,82 @@ export const getResoult= params =>{
         
     })
 }
+
+
+// 文章页面详情
+export const getarticlebyID= articleID =>{
+    return req({
+        method:'GET',
+        url:`/app/v1_0/articles/${articleID}`,
+            
+        
+    })
+}
+
+// 用户关注
+export const addfollow= target =>{
+    return req({
+        method:'POST',
+        url:`/app/v1_0/user/followings`,
+        data:{
+            target
+        }
+        
+    })
+}
+
+// 用户取消关注
+export const delfollow= target =>{
+    return req({
+        method:'DELETE',
+        url:`/app/v1_0/user/followings/${target}`,
+        
+        
+    })
+}
+
+// 用户收藏
+export const addShoucang= target =>{
+    return req({
+        method:'POST',
+        url:`/app/v1_0/article/collections`,
+        data:{
+            target
+        }
+        
+        
+    })
+}
+
+// 用户取消收藏
+export const delShoucang= target =>{
+    return req({
+        method:'DELETE',
+        url:`/app/v1_0/article/collections/${target}`,
+        
+        
+    })
+}
+
+// 用户点赞
+export const addLike= target =>{
+    return req({
+        method:'POST',
+        url:`/app/v1_0/article/likings`,
+        data:{
+            target
+        }
+        
+        
+    })
+}
+
+// 用户取消点赞
+export const delLike= target =>{
+    return req({
+        method:'DELETE',
+        url:`/app/v1_0/article/likings/${target}`,
+        
+        
+    })
+}

@@ -11,7 +11,8 @@ module.exports = {
         },
 
 
-        propList: ['*']
+        propList: ['*'],
+        exclude:'github-markdown'
       }
     }
   }
