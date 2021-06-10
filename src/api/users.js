@@ -180,3 +180,47 @@ export const delLike= target =>{
         
     })
 }
+
+// 获取评论
+export const addcomments= params =>{
+    return req({
+        method:'GET',
+        url:`/app/v1_0/comments`,
+        params
+        
+    })
+}
+
+/**
+ * 评论点赞
+ */
+ export const addCommentLike = target => {
+    return req({
+      method: 'POST',
+      url: '/app/v1_0/comment/likings',
+      data: {
+        target
+      }
+    })
+  }
+  
+  /**
+   * 取消评论点赞
+   */
+  export const deleteCommentLike = target => {
+    return req({
+      method: 'DELETE',
+      url: `/app/v1_0/comment/likings/${target}`
+    })
+  }
+  
+  /**
+ * 发布文章评论或评论回复
+ */
+export const addComment = data => {
+    return req({
+      method: 'POST',
+      url: '/app/v1_0/comments',
+      data
+    })
+  }

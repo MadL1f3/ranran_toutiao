@@ -72,12 +72,17 @@
           ref="article-content"
         ></div>
         <van-divider>正文结束</van-divider>
+        <!-- 评论列表 -->
+        <Commentlist :list="commentslist"  @onload-comment="commentcount=$event.total_count" :source="article.art_id"></Commentlist>
+        <!-- 评论列表 -->
+
         <!-- 底部区域 -->
         <div class="article-bottom">
           <van-button class="comment-btn" type="default" round size="small"
+          @click="isPostShow=true"
             >写评论</van-button
           >
-          <van-icon name="comment-o" info="123" color="#777" />
+          <van-icon name="comment-o" :info="commentcount" color="#777" />
           <!-- <van-icon color="#777" name="star-o" /> -->
           <Shoucang class="btn-item" v-model="article.is_collected" :articleid="article.art_id"></Shoucang>
           <!--  -->
@@ -86,6 +91,10 @@
           <van-icon name="share" color="#777777"></van-icon>
         </div>
         <!-- /底部区域 -->
+        <!-- 发布评论 -->
+        <van-popup v-model="isPostShow" position="bottom"> <CommentPost @post-success="postsuccess" :target="article.art_id"></CommentPost></van-popup>
+       
+        <!-- 发布评论 -->
       </div>
       <!-- /加载完成-文章详情 -->
 
@@ -113,12 +122,16 @@ import { ImagePreview } from "vant";
 import Index from "../../components/follow-user/index";
 import Shoucang from "../../components/shoucang/shoucang.vue";
 import Dianzan from "../../components/dianzan/dianzan.vue";
+import Commentlist from './comment-list.vue'
+import CommentPost from './comment-post.vue';
 export default {
   name: "ArticleIndex",
   components: {
     Index,
     Shoucang,
-    Dianzan
+    Dianzan,
+    Commentlist,
+    CommentPost
   },
   props: {
     articleID: {
@@ -132,6 +145,9 @@ export default {
       loading: true,
       errstates: 0, //失败状态吗
       isLoading: false,
+      commentcount:0,
+      isPostShow:false,
+      commentslist:[]
     };
   },
   computed: {},
@@ -175,6 +191,12 @@ export default {
         };
       });
     },
+    postsuccess(data){
+      this.isPostShow=false
+      // 添加到最前面
+      this.commentslist.unshift(data.new_obj)
+
+    }
   },
 };
 </script>
