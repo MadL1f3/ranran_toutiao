@@ -1,14 +1,10 @@
 <template>
   <div class="all">
-    <div class="myall login" v-if="user" >
+    <div class="myall login" v-if="user">
       <div class="base-info">
         <div class="left">
-          <van-image
-            class="avatar"
-            :src="this.userinfo.photo"
-            round
-          />
-          <span>{{userinfo.name}}</span>
+          <van-image class="avatar" :src="this.userinfo.photo" round />
+          <span>{{ userinfo.name }}</span>
         </div>
         <div class="right">
           <van-button size="mini" round to="/user/profile">编辑资料</van-button>
@@ -16,24 +12,24 @@
       </div>
       <div class="data-states">
         <div class="data-item">
-          <span class="content">{{userinfo.art_count}}</span>
+          <span class="content">{{ userinfo.art_count }}</span>
           <span class="text">头条</span>
         </div>
         <div class="data-item">
-          <span class="content">{{userinfo.follow_count}}</span>
+          <span class="content">{{ userinfo.follow_count }}</span>
           <span class="text">关注</span>
         </div>
         <div class="data-item">
-          <span class="content">{{userinfo.fans_count}}</span>
+          <span class="content">{{ userinfo.fans_count }}</span>
           <span class="text">粉丝</span>
         </div>
         <div class="data-item">
-          <span class="content">{{userinfo.like_count}}</span>
+          <span class="content">{{ userinfo.like_count }}</span>
           <span class="text">很赞</span>
         </div>
       </div>
     </div>
-     <div class="myall" v-else>
+    <div class="myall" v-else>
       <div class="header notlogin">
         <div class="mobile-img" @click="$router.push('./login')">
           <img src="../../assets/mobile.png" alt="" />
@@ -42,7 +38,7 @@
       </div>
     </div>
     <van-grid class="grid-nav" :column-num="2" clickable>
-      <van-grid-item class="grid-item">
+      <van-grid-item class="grid-item" to="/user/collection">
         <i slot="icon" class="ranran icon-shoucang"></i>
         <span slot="text" class="text">收藏</span>
       </van-grid-item>
@@ -54,53 +50,60 @@
     <div></div>
     <van-cell title="消息通知" class="text1" is-link></van-cell>
     <van-cell title="然然同学" class="mb-9" is-link />
-    <van-cell title="退出登陆" class="text3" v-if="user" @click="loginout" clickable/>
+    <van-cell
+      title="退出登陆"
+      class="text3"
+      v-if="user"
+      @click="loginout"
+      clickable
+    />
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import { getUserinfo } from '../../api/users';
+import { mapState } from "vuex";
+import { getUserinfo } from "../../api/users";
 export default {
   name: "WorkspaceJsonMy",
   components: {},
   directives: {},
   data() {
     return {
-      userinfo:{}
+      userinfo: {},
     };
   },
-  created(){
-    if(this.user){
-      this.loadUserinfo()
+  created() {
+    if (this.user) {
+      this.loadUserinfo();
     }
   },
-  computed:{
-    ...mapState(['user'])
+  computed: {
+    ...mapState(["user"]),
   },
   mounted() {},
   methods: {
-    loginout(){
-     this.$dialog.confirm({
-  title: '是否退出登陆',
-  message: '退出就要重新登陆捏',
-})
-  .then(() => {
-    // on confirm
-    this.$store.commit('setUser',null)
-  })
-  .catch(() => {
-    // on cancel
-  });
+    loginout() {
+      this.$dialog
+        .confirm({
+          title: "是否退出登陆",
+          message: "退出就要重新登陆捏",
+        })
+        .then(() => {
+          // on confirm
+          this.$store.commit("setUser", null);
+        })
+        .catch(() => {
+          // on cancel
+        });
     },
-    async loadUserinfo(){
-       try{
-         const {data} = await getUserinfo()
-         this.userinfo = data.data
-       }catch(err){
-         this.$toast('用户信息获取失败')
-       }
-    }
+    async loadUserinfo() {
+      try {
+        const { data } = await getUserinfo();
+        this.userinfo = data.data;
+      } catch (err) {
+        this.$toast("用户信息获取失败");
+      }
+    },
   },
 };
 </script>

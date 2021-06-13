@@ -262,7 +262,9 @@ export const getUserCollection = data => {
     return req({
       method: 'GET',
       url: '/app/v1_0/article/collections',
-      data
+      params:{
+        data
+    }
     })
   }
   

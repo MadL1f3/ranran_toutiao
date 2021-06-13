@@ -33,6 +33,11 @@
         <van-button class="btn"  block type="info" native-type="submit">
           登陆</van-button
         >
+        <div class="span">
+          <span>如果短信验证码欠费跑路试试这个（13911111111）</span><br>
+        <span>验证码（246810）</span>
+        </div>
+        
       </div>
     </van-form>
   </div>
@@ -117,7 +122,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+.span{
+  font-size: 30px;
+  color: #666;
+}
 .ranran{
   font-size: 34px;
 }

@@ -5,7 +5,7 @@
     params:{
       articleID:article.art_id
     }
-  }">
+  }" v-if="article">
     <div slot="title" class="title van-multi-ellipsis--l2">
       {{ article.title }}
     </div>
@@ -54,8 +54,12 @@ export default {
   data() {
     return {};
   },
-  created() {},
-  mounted() {},
+  created() {
+   
+  },
+  mounted() {
+    
+  },
   methods: {},
 };
 </script>
