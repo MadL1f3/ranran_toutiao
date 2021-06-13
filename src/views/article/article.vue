@@ -5,6 +5,7 @@
       class="page-nav-bar"
       left-arrow
       title="嘉然今天吃什么"
+      @click-left="$router.back()"
     ></van-nav-bar>
     <!-- /导航栏 -->
 

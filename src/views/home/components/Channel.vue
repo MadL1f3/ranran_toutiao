@@ -62,7 +62,6 @@ export default {
         this.list.push(...results)
         // 数据加载完后要把加载状态设置为结束
         this.loading = false
-        console.log(data);
         // 加载剩余数据
         if(results.length){
           this.timestamp = data.data.pre_timestamp

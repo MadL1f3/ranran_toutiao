@@ -57,7 +57,7 @@ export default {
   directives: {},
   created() {
     this.getChannels();
-    console.log(this.user);
+    
   },
 
   props: {
@@ -101,20 +101,20 @@ export default {
 
         this.allchannels = data.data.data.channels;
       } catch (err) {
-        console.log(err);
+       
       }
     },
     async onAddChannel(value) {
       this.mychannel.push(value);
       if (this.user) {
-        console.log("aaa");
+        
         try {
           await addUserChannels({
             id: value.id,
             seq: this.mychannel.length,
           });
         } catch (err) {
-          console.log(err);
+          
         }
       } else {
         setItem("JIARAN_TOUTIAO", this.mychannel);

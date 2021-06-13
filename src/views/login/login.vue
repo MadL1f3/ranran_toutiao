@@ -73,16 +73,15 @@ export default {
       })
       try{
         const red = await login(user)
-        console.log('success',red);
         this.$store.commit('setUser',red.data.data)
         this.$toast.success('登陆成功')
         this.$router.back()
       }catch(err){
         if(err.response.status===400){
-          console.log('error',err);
+          
           this.$toast.fail('手机号或者验证码错误')
         }else{
-          console.log('网络繁忙');
+          
 
 
           this.$toast.fail('网络繁忙')
@@ -93,10 +92,11 @@ export default {
     async onyzm(){
       try{
         await this.$refs.loginform.validate('phone')
-        console.log('通过');
+        
+
         this.istime=true
       }catch(err){
-        console.log(err);
+        
         return
       }
       try{

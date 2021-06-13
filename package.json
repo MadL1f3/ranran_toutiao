@@ -10,6 +10,7 @@
     "amfe-flexible": "^2.2.1",
     "axios": "^0.21.1",
     "core-js": "^3.12.1",
+    "cropperjs": "^1.5.11",
     "dayjs": "^1.10.5",
     "json-bigint": "^1.0.0",
     "lodash": "^4.17.21",

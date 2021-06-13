@@ -47,6 +47,16 @@ const routes=[
         component:()=>import('../views/article/article.vue'),
         props:true  //开启路由传参
     },
+    {
+        path:'/user/profile',
+        name:'user-profile',
+        component:()=>import('../views/userprofile/userprofile.vue'),
+    },
+    {
+        path:'/user/collection',
+        name:'user-Collection',
+        component:()=>import('../views/userShoucang/userShoucang.vue'),
+    },
 ]
 
 const route = new VueRouter({

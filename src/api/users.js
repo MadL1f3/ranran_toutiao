@@ -224,3 +224,45 @@ export const addComment = data => {
       data
     })
   }
+  /**
+ * 用户个人信息获取
+ */
+export const addusermessage = () => {
+    return req({
+      method: 'GET',
+      url: '/app/v1_0/user/profile',
+      
+    })
+  }
+  /**
+ * 更改用户个人信息
+ */
+export const changeusermessage = (data) => {
+    return req({
+      method: 'PATCH',
+      url: '/app/v1_0/user/profile',
+      data
+      
+    })
+  }
+  /**
+ * 更新用户照片资料
+ */
+export const updateUserPhoto = data => {
+    return req({
+      method: 'PATCH',
+      url: '/app/v1_0/user/photo',
+      data
+    })
+  }
+  /**
+ * 获取用户收藏列表
+ */
+export const getUserCollection = data => {
+    return req({
+      method: 'GET',
+      url: '/app/v1_0/article/collections',
+      data
+    })
+  }
+  
