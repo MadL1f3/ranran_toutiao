@@ -60,27 +60,27 @@ npm run serve
 
 已登录
 
-![2](C:\Users\1\Desktop\new\5.17\jiaran_toutiao\img\2.png)![1](C:\Users\1\Desktop\new\5.17\jiaran_toutiao\img\1.png)
+![2](./img/2.png)![1](./img/1.png)
 
 未登录
 
-![3](.\img\3.png)![3](.\img\7.png)
+![3](./img/3.png)![3](./img/7.png)
 
 文章详情
 
-![4](.\img\4.png)
+![4](./img/4.png)
 
 用户收藏列表（需要登录）
 
-![6](.\img\6.png)
+![6](./img/6.png)
 
 登录界面（需要未登录）
 
-![8](.\img\8.png)
+![8](./img/8.png)
 
 评论、点赞功能
 
-![9](.\img\9.png)![10](.\img\10.png)![11](.\img\11.png)![12](.\img\12.png)
+![9](./img/9.png)![10](./img/10.png)![11](./img/11.png)![12](./img/12.png)
 
 jiaran_toutiao 目录结构
 
