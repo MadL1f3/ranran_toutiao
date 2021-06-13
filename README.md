@@ -80,7 +80,7 @@ npm run serve
 
 评论、点赞功能
 
-![9](https://github.com/MadL1f3/ranran_toutiao/blob/master/blob/master/img/9.png)![10](./img/10.png)![11](https://github.com/MadL1f3/ranran_toutiao/blob/master/blob/master/img/11.png)![12](https://github.com/MadL1f3/ranran_toutiao/blob/master/blob/master/img/12.png)
+![9](https://github.com/MadL1f3/ranran_toutiao/blob/master/blob/master/img/9.png)![10](https://github.com/MadL1f3/ranran_toutiao/blob/master/blob/master/img/10.png)![11](https://github.com/MadL1f3/ranran_toutiao/blob/master/blob/master/img/11.png)![12](https://github.com/MadL1f3/ranran_toutiao/blob/master/blob/master/img/12.png)
 
 jiaran_toutiao 目录结构
 
